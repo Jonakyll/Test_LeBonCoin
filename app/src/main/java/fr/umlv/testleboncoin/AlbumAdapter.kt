@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class AlbumAdapter(val albums: List<Album>) : RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
 
@@ -20,10 +21,8 @@ class AlbumAdapter(val albums: List<Album>) : RecyclerView.Adapter<AlbumAdapter.
             albumIdText.text = album.albumId.toString()
             idText.text = album.id.toString()
             titleText.text = album.title
-//            DownloadImageFromInternet(urlImage).execute(album.url)
-//            DownloadImageFromInternet(thumbnailUrlImage).execute(album.thumbnailUrl)
-            DownloadImageFromInternet(urlImage).execute("https://www.lavalamp.com/wp-content/uploads/2016/07/placeholder-600x600.png")
-            DownloadImageFromInternet(thumbnailUrlImage).execute("https://alscofirstaid.com.au/wp-content/uploads/2014/01/placeholder-150x150.png")
+            Picasso.get().load(album.url).into(urlImage)
+            Picasso.get().load(album.thumbnailUrl).into(thumbnailUrlImage)
         }
 
     }

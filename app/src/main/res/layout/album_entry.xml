@@ -33,8 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:ellipsize="end"
-        android:maxLines="1"
+
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@id/thumbnailUrl_image"
         app:layout_constraintEnd_toEndOf="parent"
