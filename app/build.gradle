@@ -49,4 +49,6 @@ dependencies {
 
     // pour pouvoir travailler sur des json
     implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 }

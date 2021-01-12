@@ -3,6 +3,7 @@ package fr.umlv.testleboncoin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -20,12 +21,15 @@ class MainActivity : AppCompatActivity() {
 
             val stringRequest = StringRequest(
                 Request.Method.GET, Album.URL, { response ->
-                    response_text.text = SearchTask().execute(response).get().toString()
+                    recycler_view.adapter = AlbumAdapter(SearchTask().execute(response).get())
+                    recycler_view.layoutManager =
+                        LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
                 }, {
                     Log.e(javaClass.name, "Error with Volley request", it)
                 }
             )
             queue.add(stringRequest)
+            show_albums_button.isEnabled = false
         }
     }
 
