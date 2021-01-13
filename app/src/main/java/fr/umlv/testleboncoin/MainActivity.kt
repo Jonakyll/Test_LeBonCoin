@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                 }
             )
             queue.add(stringRequest)
-            show_albums_button.isEnabled = false
         }
     }
 
